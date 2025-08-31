@@ -1,30 +1,13 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0 as BUILD
-
-RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server
-
-WORKDIR /server/NekoNet-Server/MareSynchronosServer/MareSynchronosAuthService/
-
-RUN dotnet publish \
-        --configuration=Release \
-        --os=linux \
-        --output=/MareSynchronosAuthService \
-        NekoNetAuthService.csproj
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /server/NekoNet-Server
+WORKDIR /server/NekoNet-Server/MareSynchronosServer/MareSynchronosAuthService
+RUN dotnet publish -c Release --os linux -o /MareSynchronosAuthService MareSynchronosAuthService.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
-
-RUN adduser \
-        --disabled-password \
-        --group \
-        --no-create-home \
-        --quiet \
-        --system \
-        mare
-
-COPY --from=BUILD /NekoNetAuthService /opt/MareSynchronosAuthService
-RUN chown -R mare:mare /opt/MareSynchronosAuthService
-RUN apt-get update; apt-get install curl -y
-
+RUN adduser --disabled-password --group --no-create-home --quiet --system mare
+COPY --from=build /MareSynchronosAuthService /opt/MareSynchronosAuthService
+RUN chown -R mare:mare /opt/MareSynchronosAuthService && \
+    apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 USER mare:mare
 WORKDIR /opt/MareSynchronosAuthService
-
 CMD ["./MareSynchronosAuthService"]
