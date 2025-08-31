@@ -1,16 +1,18 @@
 ﻿using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
-using MareSynchronos.API.Data;
-using MareSynchronos.API.Data.Enum;
-using MareSynchronos.API.Data.Extensions;
-using MareSynchronos.API.Dto.User;
-using MareSynchronosServer.Utils;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Models;
+using NekoNet.API.Data;
+using NekoNet.API.Data.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using NekoNet.API.Data;
+using NekoNet.API.Data.Enum;
+using NekoNet.API.Data.Extensions;
+using NekoNet.API.Dto.User;
+using NekoNetServer.Utils;
+using NekoNetShared.Metrics;
+using NekoNetShared.Models;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 

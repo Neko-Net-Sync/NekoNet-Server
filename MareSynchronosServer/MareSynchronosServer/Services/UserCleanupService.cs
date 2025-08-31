@@ -1,12 +1,12 @@
-﻿using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Data;
+using NekoNetShared.Metrics;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public class UserCleanupService : IHostedService
 {

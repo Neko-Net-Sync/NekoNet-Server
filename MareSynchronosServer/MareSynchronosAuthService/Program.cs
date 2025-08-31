@@ -1,4 +1,4 @@
-namespace MareSynchronosAuthService;
+namespace NekoNetAuthService;
 
 public class Program
 {

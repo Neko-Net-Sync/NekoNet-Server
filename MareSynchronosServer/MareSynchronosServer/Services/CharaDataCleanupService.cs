@@ -1,7 +1,7 @@
-﻿using MareSynchronosShared.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Data;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public class CharaDataCleanupService : BackgroundService
 {

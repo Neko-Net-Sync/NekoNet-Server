@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosShared.Models;
+﻿namespace NekoNetShared.Models;
 
 public class GroupBan
 {

@@ -3,13 +3,13 @@ using Discord;
 using Discord.Net;
 using Discord.Rest;
 using Discord.WebSocket;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Models;
+using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 using StackExchange.Redis;
 
-namespace MareSynchronosServices.Discord;
+namespace NekoNetServices.Discord;
 
 public class DiscordBotServices
 {
@@ -24,9 +24,9 @@ public class DiscordBotServices
     public ConcurrentBag<ulong> VerifiedCaptchaUsers { get; } = new();
     private readonly IConfigurationService<ServicesConfiguration> _configuration;
     private readonly CancellationTokenSource verificationTaskCts = new();
-    private RestGuild? _guild;
+    private RestGuild _guild;
     private ulong? _logChannelId;
-    private RestTextChannel? _logChannel;
+    private RestTextChannel _logChannel;
 
     public DiscordBotServices(ILogger<DiscordBotServices> logger, MareMetrics metrics,
         IConfigurationService<ServicesConfiguration> configuration)

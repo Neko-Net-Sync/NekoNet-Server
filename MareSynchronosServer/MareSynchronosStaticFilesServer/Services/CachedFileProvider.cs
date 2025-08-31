@@ -1,13 +1,13 @@
-﻿using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosStaticFilesServer.Utils;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Net.Http.Headers;
-using MareSynchronosShared.Utils;
-using MareSynchronos.API.Routes;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Utils;
+using NekoNetShared.Utils;
+using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
+using NekoNet.API.Routes;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public sealed class CachedFileProvider : IDisposable
 {
@@ -66,7 +66,7 @@ public sealed class CachedFileProvider : IDisposable
 
         using var requestMessage = new HttpRequestMessage(HttpMethod.Get, downloadUrl);
         requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _generator.Token);
-        HttpResponseMessage? response = null;
+        HttpResponseMessage response = null;
 
         try
         {
@@ -168,7 +168,7 @@ public sealed class CachedFileProvider : IDisposable
         _downloadSemaphore.Release();
     }
 
-    public FileInfo? GetLocalFilePath(string hash)
+    public FileInfo GetLocalFilePath(string hash)
     {
         var fi = FilePathUtil.GetFileInfoForHash(_hotStoragePath, hash);
         if (fi == null) return null;
@@ -180,7 +180,7 @@ public sealed class CachedFileProvider : IDisposable
         return new FileInfo(fi.FullName);
     }
 
-    public async Task<FileInfo?> DownloadAndGetLocalFileInfo(string hash)
+    public async Task<FileInfo> DownloadAndGetLocalFileInfo(string hash)
     {
         await DownloadFileWhenRequired(hash).ConfigureAwait(false);
 

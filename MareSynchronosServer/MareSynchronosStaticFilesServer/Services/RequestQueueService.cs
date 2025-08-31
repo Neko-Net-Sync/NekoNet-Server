@@ -1,11 +1,11 @@
-﻿using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
-using MareSynchronosStaticFilesServer.Utils;
+﻿using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Utils;
 using System.Collections.Concurrent;
 using System.Timers;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public class RequestQueueService : IHostedService
 {
@@ -158,8 +158,8 @@ public class RequestQueueService : IHostedService
                 try
                 {
                     if (_userQueueRequests[i] != null
-                        && (((!_userQueueRequests[i].IsActive && _userQueueRequests[i].ExpirationDate < DateTime.UtcNow))
-                            || (_userQueueRequests[i].IsActive && _userQueueRequests[i].ActivationDate < DateTime.UtcNow.Subtract(TimeSpan.FromSeconds(_queueReleaseSeconds))))
+                        && (!_userQueueRequests[i].IsActive && _userQueueRequests[i].ExpirationDate < DateTime.UtcNow
+                            || _userQueueRequests[i].IsActive && _userQueueRequests[i].ActivationDate < DateTime.UtcNow.Subtract(TimeSpan.FromSeconds(_queueReleaseSeconds)))
                             )
                     {
                         _logger.LogDebug("Expiring request {guid} slot {slot}", _userQueueRequests[i].UserRequest.RequestId, i);

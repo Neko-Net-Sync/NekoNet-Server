@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Prometheus;
 
-namespace MareSynchronosShared.Metrics;
+namespace NekoNetShared.Metrics;
 
 public class MareMetrics
 {

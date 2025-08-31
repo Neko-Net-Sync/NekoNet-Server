@@ -1,7 +1,7 @@
 ﻿using MareSynchronosServer.Hubs;
 using System.Runtime.CompilerServices;
 
-namespace MareSynchronosServer.Utils;
+namespace NekoNetServer.Utils;
 
 public class MareHubLogger
 {

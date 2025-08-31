@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosStaticFilesServer.Services;
+﻿namespace NekoNetStaticFilesServer.Services;
 
 public interface IClientReadyMessageService
 {

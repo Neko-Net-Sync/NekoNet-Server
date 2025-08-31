@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace MareSynchronosShared.Models;
+namespace NekoNetShared.Models;
 
 public class UserPermissionSet
 {

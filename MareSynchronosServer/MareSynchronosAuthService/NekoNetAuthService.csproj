@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MareSynchronosShared\MareSynchronosShared.csproj" />
+    <ProjectReference Include="..\MareSynchronosShared\NekoNetShared.csproj" />
   </ItemGroup>
 
 </Project>

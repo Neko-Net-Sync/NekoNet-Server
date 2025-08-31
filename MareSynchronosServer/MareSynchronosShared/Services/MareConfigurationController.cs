@@ -1,10 +1,10 @@
-﻿using MareSynchronosShared.Utils.Configuration;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosShared.Services;
+namespace NekoNetShared.Services;
 
 [Route("configuration/[controller]")]
 [Authorize(Policy = "Internal")]

@@ -1,16 +1,16 @@
-﻿using MareSynchronos.API.Routes;
-using MareSynchronosAuthService.Services;
-using MareSynchronosShared;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NekoNet.API.Routes;
+using NekoNetAuthService.Services;
+using NekoNetShared;
+using NekoNetShared.Data;
+using NekoNetShared.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 using StackExchange.Redis;
 
-namespace MareSynchronosAuthService.Controllers;
+namespace NekoNetAuthService.Controllers;
 
 [Route(MareAuth.Auth)]
 public class JwtController : AuthControllerBase

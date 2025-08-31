@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace MareSynchronosShared;
+namespace NekoNetShared;
 
 public static class Extensions
 {

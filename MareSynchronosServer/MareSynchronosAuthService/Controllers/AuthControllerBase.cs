@@ -1,20 +1,20 @@
-﻿using MareSynchronosAuthService.Authentication;
-using MareSynchronosAuthService.Services;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
+﻿using NekoNetShared.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using NekoNetAuthService.Authentication;
+using NekoNetAuthService.Services;
+using NekoNetShared.Data;
+using NekoNetShared.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 using StackExchange.Redis;
 using System.Globalization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace MareSynchronosAuthService.Controllers;
+namespace NekoNetAuthService.Controllers;
 
 public abstract class AuthControllerBase : Controller
 {

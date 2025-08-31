@@ -1,14 +1,14 @@
 ﻿using ByteSizeLib;
 using K4os.Compression.LZ4.Legacy;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
-using MareSynchronosStaticFilesServer.Utils;
 using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Data;
+using NekoNetShared.Metrics;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Utils;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public class MainFileCleanupService : IHostedService
 {

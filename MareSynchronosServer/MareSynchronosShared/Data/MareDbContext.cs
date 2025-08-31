@@ -1,7 +1,7 @@
-﻿using MareSynchronosShared.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Models;
 
-namespace MareSynchronosShared.Data;
+namespace NekoNetShared.Data;
 
 public class MareDbContext : DbContext
 {

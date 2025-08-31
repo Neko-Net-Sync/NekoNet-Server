@@ -1,10 +1,10 @@
-﻿using MareSynchronos.API.Routes;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
+﻿using NekoNet.API.Routes;
+using NekoNetShared.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 using System.Net.Http.Headers;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public class ShardClientReadyMessageService : IClientReadyMessageService
 {

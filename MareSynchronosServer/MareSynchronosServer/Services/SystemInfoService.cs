@@ -1,15 +1,15 @@
-﻿using MareSynchronos.API.Dto;
-using MareSynchronos.API.SignalR;
-using MareSynchronosServer.Hubs;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+﻿using MareSynchronosServer.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using NekoNet.API.Dto;
+using NekoNet.API.SignalR;
+using NekoNetShared.Data;
+using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 using StackExchange.Redis.Extensions.Core.Abstractions;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public sealed class SystemInfoService : BackgroundService
 {
@@ -51,7 +51,7 @@ public sealed class SystemInfoService : BackgroundService
                 _mareMetrics.SetGaugeTo(MetricsAPI.GaugeAvailableWorkerThreads, workerThreads);
                 _mareMetrics.SetGaugeTo(MetricsAPI.GaugeAvailableIOWorkerThreads, ioThreads);
 
-                var onlineUsers = (_redis.SearchKeysAsync("UID:*").GetAwaiter().GetResult()).Count();
+                var onlineUsers = _redis.SearchKeysAsync("UID:*").GetAwaiter().GetResult().Count();
                 SystemInfoDto = new SystemInfoDto()
                 {
                     OnlineUsers = onlineUsers,

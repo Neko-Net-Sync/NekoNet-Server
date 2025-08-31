@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MareSynchronosShared.Models;
+namespace NekoNetShared.Models;
 
 public class Auth
 {
@@ -12,6 +12,6 @@ public class Auth
     public User User { get; set; }
     public bool MarkForBan { get; set; }
     public bool IsBanned { get; set; }
-    public string? PrimaryUserUID { get; set; }
-    public User? PrimaryUser { get; set; }
+    public string PrimaryUserUID { get; set; }
+    public User PrimaryUser { get; set; }
 }

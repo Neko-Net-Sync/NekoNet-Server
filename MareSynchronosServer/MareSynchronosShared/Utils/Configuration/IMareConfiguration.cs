@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosShared.Utils.Configuration;
+﻿namespace NekoNetShared.Utils.Configuration;
 
 public interface IMareConfiguration
 {

@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosAuthService.Authentication;
+﻿namespace NekoNetAuthService.Authentication;
 
 internal record SecretKeyFailedAuthorization
 {

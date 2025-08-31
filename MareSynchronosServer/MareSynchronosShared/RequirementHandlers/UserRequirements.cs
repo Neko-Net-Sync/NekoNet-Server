@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosShared.RequirementHandlers;
+﻿namespace NekoNetShared.RequirementHandlers;
 
 public enum UserRequirements
 {

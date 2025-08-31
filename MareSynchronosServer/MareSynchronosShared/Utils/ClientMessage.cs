@@ -1,4 +1,4 @@
-﻿using MareSynchronos.API.Data.Enum;
+﻿using NekoNet.API.Data.Enum;
 
-namespace MareSynchronosShared.Utils;
+namespace NekoNetShared.Utils;
 public record ClientMessage(MessageSeverity Severity, string Message, string UID);

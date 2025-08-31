@@ -1,12 +1,13 @@
 ﻿using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
 using Microsoft.EntityFrameworkCore;
+using NekoNetServices.Discord;
+using NekoNetShared.Data;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 using StackExchange.Redis;
 using System.Text.RegularExpressions;
 

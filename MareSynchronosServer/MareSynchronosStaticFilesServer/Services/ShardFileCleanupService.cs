@@ -1,10 +1,10 @@
 ﻿using ByteSizeLib;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
 using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public class ShardFileCleanupService : IHostedService
 {

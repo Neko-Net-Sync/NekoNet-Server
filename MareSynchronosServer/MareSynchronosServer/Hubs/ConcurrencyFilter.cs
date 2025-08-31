@@ -1,10 +1,11 @@
-﻿using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+﻿using MareSynchronosServer.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 using System.Threading.RateLimiting;
 
-namespace MareSynchronosServer.Hubs;
+namespace NekoNetServer.Hubs;
 
 public sealed class ConcurrencyFilter : IHubFilter, IDisposable
 {

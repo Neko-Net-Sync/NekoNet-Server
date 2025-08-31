@@ -1,9 +1,9 @@
-﻿using MareSynchronosShared;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
-using MaxMind.GeoIP2;
+﻿using MaxMind.GeoIP2;
+using NekoNetShared;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosAuthService.Services;
+namespace NekoNetAuthService.Services;
 
 public class GeoIPService : IHostedService
 {

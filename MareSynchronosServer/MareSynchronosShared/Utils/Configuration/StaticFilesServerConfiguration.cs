@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MareSynchronosShared.Utils.Configuration;
+namespace NekoNetShared.Utils.Configuration;
 
 public class StaticFilesServerConfiguration : MareConfigurationBase
 {
@@ -24,7 +24,7 @@ public class StaticFilesServerConfiguration : MareConfigurationBase
     public double SpeedTestHoursRateLimit { get; set; } = 0.5;
     [RemoteConfiguration]
     public Uri CdnFullUrl { get; set; } = null;
-    public ShardConfiguration? ShardConfiguration { get; set; } = null;
+    public ShardConfiguration ShardConfiguration { get; set; } = null;
     public override string ToString()
     {
         StringBuilder sb = new();

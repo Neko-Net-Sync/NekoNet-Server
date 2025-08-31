@@ -1,14 +1,13 @@
-﻿
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Data;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 using System.Collections.Concurrent;
 using System.Data;
 using System.Diagnostics;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public class ClientPairPermissionsCleanupService(ILogger<ClientPairPermissionsCleanupService> _logger, IDbContextFactory<MareDbContext> _dbContextFactory,
     IConfigurationService<ServerConfiguration> _configurationService)
@@ -70,7 +69,7 @@ public class ClientPairPermissionsCleanupService(ILogger<ClientPairPermissionsCl
                     {
                         completionDebugPrint[completionInt] = true;
                         var elapsed = st.Elapsed;
-                        var estimatedTimeLeft = (elapsed / completionPcnt) - elapsed;
+                        var estimatedTimeLeft = elapsed / completionPcnt - elapsed;
                         _logger.LogInformation("Progress: {no}/{total} ({pct:P2}), removed so far: {removed}, planned next chunk: {planned}, estimated time left: {time}",
                             userNoInc, users.Count, completionPcnt, removedEntries, processedAdd, estimatedTimeLeft);
                         if (userNoInc / (double)users.Count - lastUserNo / (double)users.Count > 0.05)

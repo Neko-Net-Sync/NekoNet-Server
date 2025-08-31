@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Text;
 
-namespace MareSynchronosStaticFilesServer.Utils;
+namespace NekoNetStaticFilesServer.Utils;
 
 public sealed class BlockFileDataSubstream : IDisposable
 {

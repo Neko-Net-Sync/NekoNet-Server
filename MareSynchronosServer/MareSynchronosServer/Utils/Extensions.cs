@@ -1,10 +1,10 @@
-﻿using MareSynchronos.API.Data;
-using MareSynchronos.API.Data.Enum;
-using MareSynchronos.API.Data.Extensions;
-using MareSynchronosShared.Models;
+﻿using NekoNet.API.Data;
+using NekoNet.API.Data.Enum;
+using NekoNet.API.Data.Extensions;
+using NekoNetShared.Models;
 using static MareSynchronosServer.Hubs.MareHub;
 
-namespace MareSynchronosServer.Utils;
+namespace NekoNetServer.Utils;
 
 public static class Extensions
 {
@@ -58,7 +58,7 @@ public static class Extensions
         return groupUserInfo;
     }
 
-    public static UserPermissions ToUserPermissions(this UserPermissionSet? permissions, bool setSticky = false)
+    public static UserPermissions ToUserPermissions(this UserPermissionSet permissions, bool setSticky = false)
     {
         if (permissions == null) return UserPermissions.NoneSet;
 

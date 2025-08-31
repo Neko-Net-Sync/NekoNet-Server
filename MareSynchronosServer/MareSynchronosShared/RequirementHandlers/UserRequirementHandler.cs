@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using MareSynchronosShared.Data;
 using Microsoft.EntityFrameworkCore;
-using MareSynchronosShared.Utils;
 using StackExchange.Redis;
 using StackExchange.Redis.Extensions.Core.Abstractions;
 using Microsoft.Extensions.Logging;
+using NekoNetShared.Utils;
+using NekoNetShared.Data;
 
-namespace MareSynchronosShared.RequirementHandlers;
+namespace NekoNetShared.RequirementHandlers;
 
 public class UserRequirementHandler : AuthorizationHandler<UserRequirement, HubInvocationContext>
 {

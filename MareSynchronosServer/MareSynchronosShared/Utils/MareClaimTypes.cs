@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosShared.Utils;
+﻿namespace NekoNetShared.Utils;
 
 public static class MareClaimTypes
 {

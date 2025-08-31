@@ -1,10 +1,10 @@
-﻿using MareSynchronos.API.Routes;
-using MareSynchronosShared.Utils.Configuration;
-using MareSynchronosStaticFilesServer.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NekoNet.API.Routes;
+using NekoNetShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Services;
 
-namespace MareSynchronosStaticFilesServer.Controllers;
+namespace NekoNetStaticFilesServer.Controllers;
 
 [Route(MareFiles.Main)]
 [Authorize(Policy = "Internal")]

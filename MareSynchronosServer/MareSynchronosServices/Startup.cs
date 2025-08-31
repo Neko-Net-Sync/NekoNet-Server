@@ -1,14 +1,14 @@
-using MareSynchronosServices.Discord;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
 using Microsoft.EntityFrameworkCore;
 using Prometheus;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Services;
 using StackExchange.Redis;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Utils;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
+using NekoNetShared.Metrics;
+using NekoNetShared.Data;
+using NekoNetServices.Discord;
 
-namespace MareSynchronosServices;
+namespace NekoNetServices;
 
 public class Startup
 {
@@ -23,7 +23,7 @@ public class Startup
     {
         var config = app.ApplicationServices.GetRequiredService<IConfigurationService<MareConfigurationBase>>();
 
-        var metricServer = new KestrelMetricServer(config.GetValueOrDefault<int>(nameof(MareConfigurationBase.MetricsPort), 4982));
+        var metricServer = new KestrelMetricServer(config.GetValueOrDefault(nameof(MareConfigurationBase.MetricsPort), 4982));
         metricServer.Start();
     }
 

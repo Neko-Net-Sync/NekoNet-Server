@@ -1,9 +1,9 @@
-﻿using MareSynchronos.API.Data;
-using MareSynchronos.API.Data.Enum;
-using MareSynchronos.API.Dto;
-using MareSynchronos.API.Dto.CharaData;
-using MareSynchronos.API.Dto.Group;
-using MareSynchronos.API.Dto.User;
+﻿using NekoNet.API.Data;
+using NekoNet.API.Data.Enum;
+using NekoNet.API.Dto;
+using NekoNet.API.Dto.CharaData;
+using NekoNet.API.Dto.Group;
+using NekoNet.API.Dto.User;
 
 namespace MareSynchronosServer.Hubs
 {

@@ -1,6 +1,6 @@
-﻿using MareSynchronosShared.Metrics;
+﻿using NekoNetShared.Metrics;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public class OnlineSyncedPairCacheService
 {

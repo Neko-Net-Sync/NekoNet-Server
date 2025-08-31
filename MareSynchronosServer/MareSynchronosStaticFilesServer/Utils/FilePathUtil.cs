@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosStaticFilesServer.Utils;
+﻿namespace NekoNetStaticFilesServer.Utils;
 
 public static partial class FilePathUtil
 {

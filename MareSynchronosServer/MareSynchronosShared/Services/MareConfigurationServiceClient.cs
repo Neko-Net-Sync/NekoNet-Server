@@ -1,8 +1,8 @@
-﻿using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
-using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Globalization;
@@ -11,7 +11,7 @@ using System.Reflection;
 using System.Text;
 using System.Text.Json;
 
-namespace MareSynchronosShared.Services;
+namespace NekoNetShared.Services;
 
 public class MareConfigurationServiceClient<T> : IHostedService, IConfigurationService<T> where T : class, IMareConfiguration
 {

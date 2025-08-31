@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
-using MareSynchronosShared.Utils;
 using System.Globalization;
+using NekoNetShared.Utils;
 
-namespace MareSynchronosShared.RequirementHandlers;
+namespace NekoNetShared.RequirementHandlers;
 
 public class ValidTokenRequirementHandler : AuthorizationHandler<ValidTokenRequirement>
 {

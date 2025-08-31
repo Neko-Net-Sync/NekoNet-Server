@@ -1,9 +1,9 @@
-﻿using MareSynchronosShared.Data;
-using MareSynchronosShared.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using NekoNetShared.Data;
+using NekoNetShared.Models;
 
-namespace MareSynchronosShared.Utils;
+namespace NekoNetShared.Utils;
 
 public static class SharedDbFunctions
 {

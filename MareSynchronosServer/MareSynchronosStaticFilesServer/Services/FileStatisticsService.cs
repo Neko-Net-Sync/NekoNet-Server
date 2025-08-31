@@ -1,7 +1,7 @@
-﻿using MareSynchronosShared.Metrics;
+﻿using NekoNetShared.Metrics;
 using System.Collections.Concurrent;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public class FileStatisticsService : IHostedService
 {

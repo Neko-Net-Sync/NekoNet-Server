@@ -1,7 +1,7 @@
-﻿using MareSynchronosShared.Utils;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using NekoNetShared.Utils;
 
-namespace MareSynchronosStaticFilesServer.Controllers;
+namespace NekoNetStaticFilesServer.Controllers;
 
 public class ControllerBase : Controller
 {

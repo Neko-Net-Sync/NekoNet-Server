@@ -1,11 +1,11 @@
-﻿using MareSynchronos.API.SignalR;
-using MareSynchronosServer.Hubs;
-using MareSynchronosShared.Utils;
+﻿using MareSynchronosServer.Hubs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using NekoNet.API.SignalR;
+using NekoNetShared.Utils;
 
-namespace MareSynchronosServer.Controllers;
+namespace NekoNetServer.Controllers;
 
 [Route("/msgc")]
 [Authorize(Policy = "Internal")]

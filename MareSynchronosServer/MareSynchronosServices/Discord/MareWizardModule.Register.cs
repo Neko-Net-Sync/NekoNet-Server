@@ -1,13 +1,14 @@
 ﻿using Discord.Interactions;
 using Discord;
-using MareSynchronosShared.Data;
 using Microsoft.EntityFrameworkCore;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 using Discord.Rest;
 using Discord.WebSocket;
+using NekoNetShared.Utils;
+using NekoNetShared.Data;
+using NekoNetServices.Discord;
 
 namespace MareSynchronosServices.Discord;
 

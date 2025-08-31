@@ -1,10 +1,10 @@
-﻿using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 using System.Collections;
 using System.Text;
 
-namespace MareSynchronosShared.Services;
+namespace NekoNetShared.Services;
 
 public sealed class MareConfigurationServiceServer<T> : IDisposable, IConfigurationService<T> where T : class, IMareConfiguration
 {
@@ -23,7 +23,7 @@ public sealed class MareConfigurationServiceServer<T> : IDisposable, IConfigurat
 
     public T1 GetValueOrDefault<T1>(string key, T1 defaultValue)
     {
-        return _config.CurrentValue.GetValueOrDefault<T1>(key, defaultValue);
+        return _config.CurrentValue.GetValueOrDefault(key, defaultValue);
     }
 
     public T1 GetValue<T1>(string key)

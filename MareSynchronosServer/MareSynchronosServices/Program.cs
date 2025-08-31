@@ -1,6 +1,6 @@
-using MareSynchronosServices;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetServices;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 
 public class Program
 {

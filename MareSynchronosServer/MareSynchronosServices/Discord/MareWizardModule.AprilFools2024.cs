@@ -1,6 +1,6 @@
 ﻿using Discord;
 using Discord.Interactions;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Utils.Configuration;
 using System.Text.Json;
 
 namespace MareSynchronosServices.Discord;

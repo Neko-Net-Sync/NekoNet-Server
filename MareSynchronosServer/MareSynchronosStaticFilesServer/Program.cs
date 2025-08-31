@@ -1,7 +1,7 @@
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosStaticFilesServer;
+namespace NekoNetStaticFilesServer;
 
 public class Program
 {

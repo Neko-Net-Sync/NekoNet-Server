@@ -1,16 +1,18 @@
 ﻿using Discord;
 using Discord.Interactions;
-using MareSynchronosShared.Data;
 using Microsoft.EntityFrameworkCore;
 using Prometheus;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Services;
+using NekoNetShared.Models;
+using NekoNetShared.Utils;
 using StackExchange.Redis;
-using MareSynchronos.API.Data.Enum;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
+using NekoNetShared.Data;
+using NekoNetShared.Services;
+using NekoNetShared.Models;
+using NekoNet.API.Data.Enum;
 
-namespace MareSynchronosServices.Discord;
+namespace NekoNetServices.Discord;
 
 public class MareModule : InteractionModuleBase
 {
@@ -30,9 +32,9 @@ public class MareModule : InteractionModuleBase
     }
 
     [SlashCommand("userinfo", "Shows you your user information")]
-    public async Task UserInfo([Summary("secondary_uid", "(Optional) Your secondary UID")] string? secondaryUid = null,
-        [Summary("discord_user", "ADMIN ONLY: Discord User to check for")] IUser? discordUser = null,
-        [Summary("uid", "ADMIN ONLY: UID to check for")] string? uid = null)
+    public async Task UserInfo([Summary("secondary_uid", "(Optional) Your secondary UID")] string secondaryUid = null,
+        [Summary("discord_user", "ADMIN ONLY: Discord User to check for")] IUser discordUser = null,
+        [Summary("uid", "ADMIN ONLY: UID to check for")] string uid = null)
     {
         _logger.LogInformation("SlashCommand:{userId}:{Method}",
             Context.Interaction.User.Id, nameof(UserInfo));
@@ -81,7 +83,7 @@ public class MareModule : InteractionModuleBase
     [SlashCommand("message", "ADMIN ONLY: sends a message to clients")]
     public async Task SendMessageToClients([Summary("message", "Message to send")] string message,
         [Summary("severity", "Severity of the message")] MessageSeverity messageType = MessageSeverity.Information,
-        [Summary("uid", "User ID to the person to send the message to")] string? uid = null)
+        [Summary("uid", "User ID to the person to send the message to")] string uid = null)
     {
         _logger.LogInformation("SlashCommand:{userId}:{Method}:{message}:{type}:{uid}", Context.Interaction.User.Id, nameof(SendMessageToClients), message, messageType, uid);
 
@@ -183,7 +185,7 @@ public class MareModule : InteractionModuleBase
         return embed.Build();
     }
 
-    private async Task<EmbedBuilder> HandleUserInfo(EmbedBuilder eb, ulong id, string? secondaryUserUid = null, ulong? optionalUser = null, string? uid = null)
+    private async Task<EmbedBuilder> HandleUserInfo(EmbedBuilder eb, ulong id, string secondaryUserUid = null, ulong? optionalUser = null, string uid = null)
     {
         bool showForSecondaryUser = secondaryUserUid != null;
         using var scope = _services.CreateScope();

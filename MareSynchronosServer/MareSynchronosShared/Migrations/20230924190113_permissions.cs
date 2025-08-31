@@ -1,4 +1,4 @@
-﻿using MareSynchronosShared.Models;
+﻿using NekoNetShared.Models;
 using Microsoft.EntityFrameworkCore.Migrations;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 

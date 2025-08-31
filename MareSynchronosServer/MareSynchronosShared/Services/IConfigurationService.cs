@@ -1,6 +1,6 @@
-﻿using MareSynchronosShared.Utils.Configuration;
+﻿using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosShared.Services;
+namespace NekoNetShared.Services;
 
 public interface IConfigurationService<T> where T : class, IMareConfiguration
 {

@@ -1,12 +1,12 @@
-﻿using MareSynchronos.API.Data.Enum;
-using MareSynchronos.API.Dto;
-using MareSynchronos.API.Dto.Group;
-using MareSynchronos.API.Dto.User;
-using MareSynchronos.API.Data.Extensions;
-using MareSynchronosServer.Utils;
+﻿using NekoNet.API.Dto.Group;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using NekoNetServer.Utils;
+using NekoNet.API.Data.Extensions;
+using NekoNet.API.Data.Enum;
+using NekoNet.API.Dto.User;
+using NekoNet.API.Dto;
 
 namespace MareSynchronosServer.Hubs;
 

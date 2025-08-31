@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
 using System.Text;
 using System.Text.Json;
+using NekoNetShared.Utils;
 
-namespace MareSynchronosShared.Utils.Configuration;
+namespace NekoNetShared.Utils.Configuration;
 
 public class MareConfigurationBase : IMareConfiguration
 {

@@ -1,10 +1,4 @@
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosStaticFilesServer.Controllers;
-using MareSynchronosStaticFilesServer.Services;
-using MareSynchronosStaticFilesServer.Utils;
+using NekoNetShared.Utils;
 using MessagePack;
 using MessagePack.Resolvers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -20,9 +14,16 @@ using StackExchange.Redis.Extensions.System.Text.Json;
 using StackExchange.Redis;
 using System.Net;
 using System.Text;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Controllers;
+using NekoNetStaticFilesServer.Utils;
+using NekoNetStaticFilesServer.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Services;
+using NekoNetShared.Metrics;
+using NekoNetShared.Data;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosStaticFilesServer;
+namespace NekoNetStaticFilesServer;
 
 public class Startup
 {
@@ -250,7 +251,7 @@ public class Startup
 
         var config = app.ApplicationServices.GetRequiredService<IConfigurationService<MareConfigurationBase>>();
 
-        var metricServer = new KestrelMetricServer(config.GetValueOrDefault<int>(nameof(MareConfigurationBase.MetricsPort), 4981));
+        var metricServer = new KestrelMetricServer(config.GetValueOrDefault(nameof(MareConfigurationBase.MetricsPort), 4981));
         metricServer.Start();
 
         app.UseHttpMetrics();

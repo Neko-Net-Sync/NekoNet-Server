@@ -1,11 +1,11 @@
-﻿using MareSynchronos.API.Routes;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Utils.Configuration;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using NekoNet.API.Routes;
+using NekoNetShared.Services;
+using NekoNetShared.Utils;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosStaticFilesServer.Controllers;
+namespace NekoNetStaticFilesServer.Controllers;
 
 [Route(MareFiles.Speedtest)]
 public class SpeedTestController : ControllerBase

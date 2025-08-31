@@ -1,11 +1,11 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace MareSynchronosShared.Utils;
+namespace NekoNetShared.Utils;
 
 public static class StringUtils
 {
-    public static string GenerateRandomString(int length, string? allowableChars = null)
+    public static string GenerateRandomString(int length, string allowableChars = null)
     {
         if (string.IsNullOrEmpty(allowableChars))
             allowableChars = @"ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";

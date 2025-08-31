@@ -1,9 +1,9 @@
-﻿using MareSynchronos.API.Routes;
-using MareSynchronosStaticFilesServer.Services;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using NekoNet.API.Routes;
+using NekoNetStaticFilesServer.Services;
 
-namespace MareSynchronosStaticFilesServer.Controllers;
+namespace NekoNetStaticFilesServer.Controllers;
 
 [Route(MareFiles.Distribution)]
 public class DistributionController : ControllerBase

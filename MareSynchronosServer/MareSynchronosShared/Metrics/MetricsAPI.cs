@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosShared.Metrics;
+﻿namespace NekoNetShared.Metrics;
 
 public class MetricsAPI
 {

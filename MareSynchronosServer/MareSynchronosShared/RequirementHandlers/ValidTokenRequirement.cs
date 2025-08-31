@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 
-namespace MareSynchronosShared.RequirementHandlers;
+namespace NekoNetShared.RequirementHandlers;
 
 public class ValidTokenRequirement : IAuthorizationRequirement { }

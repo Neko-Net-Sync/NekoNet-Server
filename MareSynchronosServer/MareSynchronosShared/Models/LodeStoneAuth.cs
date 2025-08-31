@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MareSynchronosShared.Models;
+namespace NekoNetShared.Models;
 
 public class LodeStoneAuth
 {
@@ -9,7 +9,7 @@ public class LodeStoneAuth
     [MaxLength(100)]
     public string HashedLodestoneId { get; set; }
     [MaxLength(100)]
-    public string? LodestoneAuthString { get; set; }
-    public User? User { get; set; }
+    public string LodestoneAuthString { get; set; }
+    public User User { get; set; }
     public DateTime? StartedAt { get; set; }
 }

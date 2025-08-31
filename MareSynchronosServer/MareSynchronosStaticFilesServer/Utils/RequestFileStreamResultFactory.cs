@@ -1,9 +1,9 @@
-﻿using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
-using MareSynchronosStaticFilesServer.Services;
+﻿using NekoNetShared.Metrics;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Services;
 
-namespace MareSynchronosStaticFilesServer.Utils;
+namespace NekoNetStaticFilesServer.Utils;
 
 public class RequestFileStreamResultFactory
 {

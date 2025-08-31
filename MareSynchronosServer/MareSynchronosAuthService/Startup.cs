@@ -1,25 +1,26 @@
-﻿using MareSynchronosAuthService.Controllers;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils;
+﻿using NekoNetShared.Utils;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using StackExchange.Redis.Extensions.Core.Configuration;
 using StackExchange.Redis.Extensions.System.Text.Json;
 using StackExchange.Redis;
 using System.Net;
-using MareSynchronosAuthService.Services;
-using MareSynchronosShared.RequirementHandlers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using MareSynchronosShared.Data;
 using Microsoft.EntityFrameworkCore;
 using Prometheus;
-using MareSynchronosShared.Utils.Configuration;
 using StackExchange.Redis.Extensions.Core.Abstractions;
+using NekoNetShared.RequirementHandlers;
+using NekoNetShared.Utils;
+using NekoNetShared.Services;
+using NekoNetShared.Metrics;
+using NekoNetShared.Data;
+using NekoNetShared.Utils.Configuration;
+using NekoNetAuthService.Services;
+using NekoNetAuthService.Controllers;
 
-namespace MareSynchronosAuthService;
+namespace NekoNetAuthService;
 
 public class Startup
 {
@@ -43,7 +44,7 @@ public class Startup
         app.UseAuthentication();
         app.UseAuthorization();
 
-        KestrelMetricServer metricServer = new KestrelMetricServer(config.GetValueOrDefault<int>(nameof(MareConfigurationBase.MetricsPort), 4985));
+        KestrelMetricServer metricServer = new KestrelMetricServer(config.GetValueOrDefault(nameof(MareConfigurationBase.MetricsPort), 4985));
         metricServer.Start();
 
         app.UseEndpoints(endpoints =>
@@ -159,7 +160,7 @@ public class Startup
 
     private static void ConfigureMetrics(IServiceCollection services)
     {
-        services.AddSingleton<MareMetrics>(m => new MareMetrics(m.GetService<ILogger<MareMetrics>>(), new List<string>
+        services.AddSingleton(m => new MareMetrics(m.GetService<ILogger<MareMetrics>>(), new List<string>
         {
             MetricsAPI.CounterAuthenticationCacheHits,
             MetricsAPI.CounterAuthenticationFailures,
@@ -210,7 +211,7 @@ public class Startup
 
         var muxer = ConnectionMultiplexer.Connect(options);
         var db = muxer.GetDatabase();
-        services.AddSingleton<IDatabase>(db);
+        services.AddSingleton(db);
 
         _logger.LogInformation("Setting up Redis to connect to {host}:{port}", address, port);
     }

@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace MareSynchronosShared.Utils;
+namespace NekoNetShared.Utils;
 
 public class IdBasedUserIdProvider : IUserIdProvider
 {

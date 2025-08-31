@@ -1,9 +1,9 @@
-﻿using MareSynchronos.API.Routes;
-using MareSynchronosStaticFilesServer.Services;
-using MareSynchronosStaticFilesServer.Utils;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using NekoNet.API.Routes;
+using NekoNetStaticFilesServer.Services;
+using NekoNetStaticFilesServer.Utils;
 
-namespace MareSynchronosStaticFilesServer.Controllers;
+namespace NekoNetStaticFilesServer.Controllers;
 
 [Route(MareFiles.Cache)]
 public class CacheController : ControllerBase

@@ -1,10 +1,10 @@
-﻿using MareSynchronos.API.Data;
-using MareSynchronos.API.Dto.CharaData;
-using MareSynchronosServer.Utils;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Utils;
+﻿using NekoNet.API.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using NekoNet.API.Dto.CharaData;
+using NekoNetServer.Utils;
+using NekoNetShared.Models;
+using NekoNetShared.Utils;
 using System.Text.Json;
 
 namespace MareSynchronosServer.Hubs;

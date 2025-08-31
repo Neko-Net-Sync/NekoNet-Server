@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MareSynchronosShared.Utils.Configuration;
+namespace NekoNetShared.Utils.Configuration;
 
 public class ServicesConfiguration : MareConfigurationBase
 {

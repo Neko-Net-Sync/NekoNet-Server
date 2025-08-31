@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosServer.Utils;
+﻿namespace NekoNetServer.Utils;
 
 public enum PauseInfo
 {

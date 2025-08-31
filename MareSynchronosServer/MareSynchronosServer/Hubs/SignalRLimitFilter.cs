@@ -1,10 +1,10 @@
 ﻿using AspNetCoreRateLimit;
-using MareSynchronosShared;
-using MareSynchronosShared.Utils;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Options;
+using NekoNetShared;
+using NekoNetShared.Utils;
 
-namespace MareSynchronosServer.Hubs;
+namespace NekoNetServer.Hubs;
 public class SignalRLimitFilter : IHubFilter
 {
     private readonly IRateLimitProcessor _processor;

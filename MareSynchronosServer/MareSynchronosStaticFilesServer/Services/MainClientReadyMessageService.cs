@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR;
-using MareSynchronos.API.SignalR;
 using MareSynchronosServer.Hubs;
+using NekoNet.API.SignalR;
 
-namespace MareSynchronosStaticFilesServer.Services;
+namespace NekoNetStaticFilesServer.Services;
 
 public class MainClientReadyMessageService : IClientReadyMessageService
 {

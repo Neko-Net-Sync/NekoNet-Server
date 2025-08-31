@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosStaticFilesServer.Utils;
+﻿namespace NekoNetStaticFilesServer.Utils;
 
 public class UserQueueEntry
 {

@@ -1,10 +1,10 @@
-﻿using MareSynchronos.API.Dto.CharaData;
-using MareSynchronos.API.SignalR;
-using MareSynchronosServer.Hubs;
+﻿using MareSynchronosServer.Hubs;
 using Microsoft.AspNetCore.SignalR;
+using NekoNet.API.Dto.CharaData;
+using NekoNet.API.SignalR;
 using StackExchange.Redis.Extensions.Core.Abstractions;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public sealed class GPoseLobbyDistributionService : IHostedService, IDisposable
 {

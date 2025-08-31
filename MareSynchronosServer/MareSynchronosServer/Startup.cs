@@ -4,11 +4,7 @@ using Microsoft.AspNetCore.Http.Connections;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.AspNetCore.Authorization;
 using AspNetCoreRateLimit;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosServer.Services;
-using MareSynchronosShared.Utils;
-using MareSynchronosShared.Services;
+using NekoNetShared.Utils;
 using Prometheus;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -17,15 +13,22 @@ using StackExchange.Redis;
 using StackExchange.Redis.Extensions.Core.Configuration;
 using System.Net;
 using StackExchange.Redis.Extensions.System.Text.Json;
-using MareSynchronos.API.SignalR;
 using MessagePack;
 using MessagePack.Resolvers;
 using Microsoft.AspNetCore.Mvc.Controllers;
-using MareSynchronosServer.Controllers;
-using MareSynchronosShared.RequirementHandlers;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.RequirementHandlers;
+using NekoNetServer.Services;
+using NekoNetServer.Hubs;
+using NekoNetServer.Controllers;
+using NekoNetShared.RequirementHandlers;
+using NekoNetShared.Utils;
+using NekoNetShared.Services;
+using NekoNetShared.Metrics;
+using NekoNetShared.Data;
+using NekoNetShared.Utils.Configuration;
+using NekoNet.API.SignalR;
 
-namespace MareSynchronosServer;
+namespace NekoNetServer;
 
 public class Startup
 {
@@ -273,7 +276,7 @@ public class Startup
 
     private static void ConfigureMetrics(IServiceCollection services)
     {
-        services.AddSingleton<MareMetrics>(m => new MareMetrics(m.GetService<ILogger<MareMetrics>>(), new List<string>
+        services.AddSingleton(m => new MareMetrics(m.GetService<ILogger<MareMetrics>>(), new List<string>
         {
             MetricsAPI.CounterInitializedConnections,
             MetricsAPI.CounterUserPushData,
@@ -338,7 +341,7 @@ public class Startup
         app.UseWebSockets();
         app.UseHttpMetrics();
 
-        var metricServer = new KestrelMetricServer(config.GetValueOrDefault<int>(nameof(MareConfigurationBase.MetricsPort), 4980));
+        var metricServer = new KestrelMetricServer(config.GetValueOrDefault(nameof(MareConfigurationBase.MetricsPort), 4980));
         metricServer.Start();
 
         app.UseAuthentication();

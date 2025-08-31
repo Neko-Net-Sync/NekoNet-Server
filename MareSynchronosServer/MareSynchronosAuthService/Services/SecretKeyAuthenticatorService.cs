@@ -1,13 +1,13 @@
 ﻿using System.Collections.Concurrent;
-using MareSynchronosAuthService.Authentication;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
 using Microsoft.EntityFrameworkCore;
+using NekoNetAuthService.Authentication;
+using NekoNetShared.Data;
+using NekoNetShared.Metrics;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 
-namespace MareSynchronosAuthService.Services;
+namespace NekoNetAuthService.Services;
 
 public class SecretKeyAuthenticatorService
 {

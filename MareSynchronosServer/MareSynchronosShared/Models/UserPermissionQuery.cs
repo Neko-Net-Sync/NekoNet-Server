@@ -1,4 +1,4 @@
-﻿namespace MareSynchronosShared.Models;
+﻿namespace NekoNetShared.Models;
 
 public class UserPermissionQuery
 {
@@ -17,7 +17,7 @@ public class UserPermissionQuery
     public bool? OtherpermDisableSounds { get; set; }
     public bool? OtherpermDisableVFX { get; set; }
 
-    public UserPermissionSet? OwnPermissions => OwnpermSticky == null ? null : new UserPermissionSet
+    public UserPermissionSet OwnPermissions => OwnpermSticky == null ? null : new UserPermissionSet
     {
         UserUID = UserUID,
         OtherUserUID = OtherUserUID,
@@ -28,7 +28,7 @@ public class UserPermissionQuery
         Sticky = OwnpermSticky.Value
     };
 
-    public UserPermissionSet? OtherPermissions => !Synced ? null : new UserPermissionSet
+    public UserPermissionSet OtherPermissions => !Synced ? null : new UserPermissionSet
     {
         UserUID = OtherUserUID,
         OtherUserUID = UserUID,

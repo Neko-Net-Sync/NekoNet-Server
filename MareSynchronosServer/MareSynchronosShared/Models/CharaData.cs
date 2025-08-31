@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MareSynchronosShared.Models;
+namespace NekoNetShared.Models;
 
 public enum CharaDataAccess
 {
@@ -27,9 +27,9 @@ public class CharaData
     public CharaDataAccess AccessType { get; set; }
     public CharaDataShare ShareType { get; set; }
     public DateTime? ExpiryDate { get; set; }
-    public string? GlamourerData { get; set; }
-    public string? CustomizeData { get; set; }
-    public string? ManipulationData { get; set; }
+    public string GlamourerData { get; set; }
+    public string CustomizeData { get; set; }
+    public string ManipulationData { get; set; }
     public int DownloadCount { get; set; } = 0;
     public virtual ICollection<CharaDataPose> Poses { get; set; } = [];
     public virtual ICollection<CharaDataFile> Files { get; set; } = [];
@@ -45,10 +45,10 @@ public class CharaDataAllowance
     public virtual CharaData Parent { get; set; }
     public string ParentId { get; set; }
     public string ParentUploaderUID { get; set; }
-    public virtual User? AllowedUser { get; set; }
-    public string? AllowedUserUID { get; set; }
-    public virtual Group? AllowedGroup { get; set; }
-    public string? AllowedGroupGID { get; set; }
+    public virtual User AllowedUser { get; set; }
+    public string AllowedUserUID { get; set; }
+    public virtual Group AllowedGroup { get; set; }
+    public string AllowedGroupGID { get; set; }
 }
 
 public class CharaDataOriginalFile

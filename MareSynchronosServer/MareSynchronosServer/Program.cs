@@ -1,10 +1,10 @@
 using Microsoft.EntityFrameworkCore;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+using NekoNetShared.Metrics;
+using NekoNetShared.Data;
+using NekoNetShared.Utils.Configuration;
+using NekoNetShared.Services;
 
-namespace MareSynchronosServer;
+namespace NekoNetServer;
 
 public class Program
 {

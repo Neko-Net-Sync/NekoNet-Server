@@ -1,11 +1,11 @@
-﻿using MareSynchronosShared.Data;
-using MareSynchronosShared.Utils;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using NekoNetShared.Data;
+using NekoNetShared.Utils;
 using System.Collections.Concurrent;
 
-namespace MareSynchronosShared.RequirementHandlers;
+namespace NekoNetShared.RequirementHandlers;
 public class ExistingUserRequirementHandler : AuthorizationHandler<ExistingUserRequirement>
 {
     private readonly IDbContextFactory<MareDbContext> _dbContextFactory;

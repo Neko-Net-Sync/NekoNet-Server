@@ -1,5 +1,4 @@
-﻿
-namespace MareSynchronosStaticFilesServer.Utils;
+﻿namespace NekoNetStaticFilesServer.Utils;
 
 public sealed class BlockFileDataStream : Stream
 {

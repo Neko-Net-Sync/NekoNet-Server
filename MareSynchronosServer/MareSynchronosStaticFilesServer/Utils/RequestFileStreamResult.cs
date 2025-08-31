@@ -1,8 +1,8 @@
-﻿using MareSynchronosShared.Metrics;
-using MareSynchronosStaticFilesServer.Services;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using NekoNetShared.Metrics;
+using NekoNetStaticFilesServer.Services;
 
-namespace MareSynchronosStaticFilesServer.Utils;
+namespace NekoNetStaticFilesServer.Utils;
 
 public class RequestFileStreamResult : FileStreamResult
 {

@@ -1,10 +1,10 @@
-﻿using MareSynchronos.API.Dto.User;
-using Microsoft.VisualBasic.FileIO;
+﻿using Microsoft.VisualBasic.FileIO;
+using NekoNet.API.Dto.User;
 using Prometheus;
 using System.Collections.Concurrent;
 using System.Globalization;
 
-namespace MareSynchronosServer.Services;
+namespace NekoNetServer.Services;
 
 public class MareCensus : IHostedService
 {
@@ -23,7 +23,7 @@ public class MareCensus : IHostedService
     private readonly Dictionary<short, string> _races = new();
     private readonly Dictionary<short, string> _tribes = new();
     private readonly Dictionary<ushort, (string, short)> _worlds = new();
-    private Gauge? _gauge;
+    private Gauge _gauge;
 
     public MareCensus(ILogger<MareCensus> logger)
     {
@@ -42,7 +42,7 @@ public class MareCensus : IHostedService
         }
     }
 
-    public void PublishStatistics(string uid, CensusDataDto? censusDataDto)
+    public void PublishStatistics(string uid, CensusDataDto censusDataDto)
     {
         if (!Initialized || censusDataDto == null) return;
 

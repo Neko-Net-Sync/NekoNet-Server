@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MareSynchronosShared.Utils.Configuration;
+namespace NekoNetShared.Utils.Configuration;
 
 public class AuthServiceConfiguration : MareConfigurationBase
 {
@@ -10,8 +10,8 @@ public class AuthServiceConfiguration : MareConfigurationBase
     public int TempBanDurationInMinutes { get; set; } = 5;
     public List<string> WhitelistedIps { get; set; } = new();
     public Uri PublicOAuthBaseUri { get; set; } = null;
-    public string? DiscordOAuthClientSecret { get; set; } = null;
-    public string? DiscordOAuthClientId { get; set; } = null;
+    public string DiscordOAuthClientSecret { get; set; } = null;
+    public string DiscordOAuthClientId { get; set; } = null;
     public override string ToString()
     {
         StringBuilder sb = new();

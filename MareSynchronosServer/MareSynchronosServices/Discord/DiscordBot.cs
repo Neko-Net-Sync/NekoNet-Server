@@ -2,15 +2,16 @@
 using Discord.Interactions;
 using Discord.Rest;
 using Discord.WebSocket;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
+using MareSynchronosServices.Discord;
 using Microsoft.EntityFrameworkCore;
+using NekoNetShared.Data;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
 using Newtonsoft.Json.Linq;
 using StackExchange.Redis;
 
-namespace MareSynchronosServices.Discord;
+namespace NekoNetServices.Discord;
 
 internal class DiscordBot : IHostedService
 {
@@ -22,8 +23,8 @@ internal class DiscordBot : IHostedService
     private readonly IDbContextFactory<MareDbContext> _dbContextFactory;
     private readonly IServiceProvider _services;
     private InteractionService _interactionModule;
-    private readonly CancellationTokenSource? _processReportQueueCts;
-    private CancellationTokenSource? _clientConnectedCts;
+    private readonly CancellationTokenSource _processReportQueueCts;
+    private CancellationTokenSource _clientConnectedCts;
 
     public DiscordBot(DiscordBotServices botServices, IServiceProvider services, IConfigurationService<ServicesConfiguration> configuration,
         IDbContextFactory<MareDbContext> dbContextFactory,
@@ -162,7 +163,7 @@ internal class DiscordBot : IHostedService
             return;
         }
 
-        IUserMessage? message = null;
+        IUserMessage message = null;
         var socketchannel = await _discordClient.GetChannelAsync(discordChannelForCommands.Value).ConfigureAwait(false) as SocketTextChannel;
         var pinnedMessages = await socketchannel.GetPinnedMessagesAsync().ConfigureAwait(false);
         foreach (var msg in pinnedMessages)
@@ -181,7 +182,7 @@ internal class DiscordBot : IHostedService
         await GenerateOrUpdateWizardMessage(socketchannel, message).ConfigureAwait(false);
     }
 
-    private async Task GenerateOrUpdateWizardMessage(SocketTextChannel channel, IUserMessage? prevMessage)
+    private async Task GenerateOrUpdateWizardMessage(SocketTextChannel channel, IUserMessage prevMessage)
     {
         EmbedBuilder eb = new EmbedBuilder();
         eb.WithTitle("Mare Services Bot Interaction Service");

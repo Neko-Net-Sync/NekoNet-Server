@@ -1,24 +1,24 @@
 ﻿using K4os.Compression.LZ4.Legacy;
-using MareSynchronos.API.Dto.Files;
-using MareSynchronos.API.Routes;
-using MareSynchronos.API.SignalR;
 using MareSynchronosServer.Hubs;
-using MareSynchronosShared.Data;
-using MareSynchronosShared.Metrics;
-using MareSynchronosShared.Models;
-using MareSynchronosShared.Services;
-using MareSynchronosShared.Utils.Configuration;
-using MareSynchronosStaticFilesServer.Services;
-using MareSynchronosStaticFilesServer.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using NekoNet.API.Dto.Files;
+using NekoNet.API.Routes;
+using NekoNet.API.SignalR;
+using NekoNetShared.Data;
+using NekoNetShared.Metrics;
+using NekoNetShared.Models;
+using NekoNetShared.Services;
+using NekoNetShared.Utils.Configuration;
+using NekoNetStaticFilesServer.Services;
+using NekoNetStaticFilesServer.Utils;
 using System.Collections.Concurrent;
 using System.Security.Cryptography;
 using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace MareSynchronosStaticFilesServer.Controllers;
+namespace NekoNetStaticFilesServer.Controllers;
 
 [Route(MareFiles.ServerFiles)]
 public class ServerFilesController : ControllerBase
@@ -93,7 +93,7 @@ public class ServerFilesController : ControllerBase
         foreach (var file in cacheFile)
         {
             var forbiddenFile = forbiddenFiles.SingleOrDefault(f => string.Equals(f.Hash, file.Hash, StringComparison.OrdinalIgnoreCase));
-            Uri? baseUrl = null;
+            Uri baseUrl = null;
 
             if (forbiddenFile == null)
             {
@@ -164,7 +164,7 @@ public class ServerFilesController : ControllerBase
 
         if (notCoveredFiles.Any(p => !p.Value.IsForbidden))
         {
-            await _hubContext.Clients.Users(filesSendDto.UIDs).SendAsync(nameof(IMareHub.Client_UserReceiveUploadStatus), new MareSynchronos.API.Dto.User.UserDto(new(MareUser)))
+            await _hubContext.Clients.Users(filesSendDto.UIDs).SendAsync(nameof(IMareHub.Client_UserReceiveUploadStatus), new NekoNet.API.Dto.User.UserDto(new(MareUser)))
                 .ConfigureAwait(false);
         }
 
@@ -325,7 +325,7 @@ public class ServerFilesController : ControllerBase
 
     private async Task<SemaphoreSlim> CreateFileLock(string hash, CancellationToken requestAborted)
     {
-        SemaphoreSlim? fileLock = null;
+        SemaphoreSlim fileLock = null;
         bool successfullyWaited = false;
         while (!successfullyWaited && !requestAborted.IsCancellationRequested)
         {
