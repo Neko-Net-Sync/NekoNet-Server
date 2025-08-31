@@ -8,7 +8,7 @@ RUN dotnet publish \
         --configuration=Release \
         --os=linux \
         --output=/MareSynchronosServer \
-        MareSynchronosServer.csproj
+        NekoNetServer.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 

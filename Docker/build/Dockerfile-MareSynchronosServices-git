@@ -8,7 +8,7 @@ RUN dotnet publish \
         --configuration=Release \
         --os=linux \
         --output=/MareSynchronosServices \
-        MareSynchronosServices.csproj
+        NekoNetServices.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 
@@ -28,3 +28,4 @@ USER mare:mare
 WORKDIR /opt/MareSynchronosServices
 
 CMD ["./MareSynchronosServices"]
+##
