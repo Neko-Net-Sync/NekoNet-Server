@@ -35,7 +35,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\MareAPI\MareSynchronosAPI\NekoNet.API.csproj" />
-    <ProjectReference Include="..\MareSynchronosShared\NekoNetShared.csproj" />
+    <ProjectReference Include="..\NekoNetShared\NekoNetShared.csproj" />
   </ItemGroup>
 
 </Project>
