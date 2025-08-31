@@ -2,16 +2,17 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 
 RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /server/NekoNet-Server
 
-WORKDIR /server/NekoNet-Server/MareSynchronosServer/NekoNetStaticFilesServer
-RUN dotnet publish -c Release --os linux -o /MareSynchronosStaticFilesServer NekoNetStaticFilesServer.csproj
+WORKDIR /server/NekoNet-Server/NekoNetStaticFilesServer
+RUN dotnet publish -c Release -o /NekoNetStaticFilesServer NekoNetStaticFilesServer.csproj
+
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 RUN adduser --disabled-password --group --no-create-home --quiet --system mare
 
-COPY --from=build /MareSynchronosStaticFilesServer /opt/MareSynchronosStaticFilesServer
-RUN chown -R mare:mare /opt/MareSynchronosStaticFilesServer \
+COPY --from=build /NekoNetStaticFilesServer /opt/NekoNetStaticFilesServer
+RUN chown -R mare:mare /opt/NekoNetStaticFilesServer \
  && apt-get update && apt-get install -y curl \
  && rm -rf /var/lib/apt/lists/*
 
 USER mare:mare
-WORKDIR /opt/MareSynchronosStaticFilesServer
+WORKDIR /opt/NekoNetStaticFilesServer
 CMD ["./NekoNetStaticFilesServer"]
