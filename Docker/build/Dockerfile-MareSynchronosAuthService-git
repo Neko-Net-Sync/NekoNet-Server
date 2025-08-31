@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /server/NekoNet-Server
-WORKDIR /server/NekoNet-Server/NekoNetAuthService
+WORKDIR /server/NekoNet-Server/NekoNetServer/NekoNetAuthService
 RUN dotnet publish -c Release -o /NekoNetAuthService NekoNetAuthService.csproj
 
 
