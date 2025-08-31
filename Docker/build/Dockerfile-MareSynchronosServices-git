@@ -1,8 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 as BUILD
 
-RUN git clone --recurse-submodules https://github.com/MareSynchronos/server
+RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server
 
-WORKDIR /server/MareSynchronosServer/MareSynchronosServices/
+WORKDIR /server/NekoNet-Server/MareSynchronosServer/MareSynchronosServices/
 
 RUN dotnet publish \
         --configuration=Release \
