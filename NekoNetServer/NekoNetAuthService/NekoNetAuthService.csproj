@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NekoNetShared\NekoNetShared.csproj" />
+	  <ProjectReference Include="..\..\NekoNetAPI\NekoNetAPI\NekoNet.API.csproj" />
   </ItemGroup>
 
 </Project>

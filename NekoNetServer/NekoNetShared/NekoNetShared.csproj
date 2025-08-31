@@ -51,7 +51,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\MareAPI\MareSynchronosAPI\NekoNet.API.csproj" />
+		<ProjectReference Include="..\..\NekoNetAPI\NekoNetAPI\NekoNet.API.csproj" />
 	</ItemGroup>
 
 </Project>
