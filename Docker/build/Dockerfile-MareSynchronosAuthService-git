@@ -20,7 +20,7 @@ RUN adduser \
         --system \
         mare
 
-COPY --from=BUILD /MareSynchronosAuthService /opt/MareSynchronosAuthService
+COPY --from=BUILD /NekoNetAuthService /opt/MareSynchronosAuthService
 RUN chown -R mare:mare /opt/MareSynchronosAuthService
 RUN apt-get update; apt-get install curl -y
 
