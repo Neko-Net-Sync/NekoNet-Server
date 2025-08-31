@@ -10,4 +10,4 @@ RUN chown -R mare:mare /opt/MareSynchronosAuthService && \
     apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 USER mare:mare
 WORKDIR /opt/MareSynchronosAuthService
-CMD ["./MareSynchronosAuthService"]
+CMD ["./NekoNetAuthService"]
