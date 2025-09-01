@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /home/mare/NekoNet-Server
-WORKDIR /home/mare/NekoNet-Server/NekoNetServer/NekoNetServices
-RUN dotnet publish -c Release -o /NekoNetServices NekoNetServices.csproj
+WORKDIR /home/mare/NekoNet-Server/NekoNetServer
+RUN dotnet publish NekoNetServices/NekoNetServices.csproj -c Release -o /NekoNetServices
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 RUN adduser --disabled-password --group --no-create-home --quiet --system mare
