@@ -1,11 +1,23 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /home/mare/NekoNet-Server
-WORKDIR /home/mare/NekoNet-Server/NekoNetServer
-RUN dotnet publish NekoNetServer/NekoNetServer.csproj -c Release -o /NekoNetServer
+COPY NekoNetAPI /server/NekoNetAPI
+COPY NekoNetServer/NekoNetShared /server/NekoNetServer/NekoNetShared
+COPY NekoNetServer/NekoNetServer /server/NekoNetServer/NekoNetServer
+WORKDIR /server/NekoNetServer/NekoNetServer/
+RUN dotnet publish \
+        --configuration=Release \
+        --os=linux \
+        --output=/build \
+        NekoNetServer.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
-RUN adduser --disabled-password --group --no-create-home --quiet --system mare
-COPY --from=build /NekoNetServer /opt/NekoNetServer
+RUN adduser \
+        --disabled-password \
+        --group \
+        --no-create-home \
+        --quiet \
+        --system \
+        mare
+COPY --from=build /build /opt/NekoNetServer
 RUN chown -R mare:mare /opt/NekoNetServer \
  && apt-get update && apt-get install -y curl \
  && rm -rf /var/lib/apt/lists/*
