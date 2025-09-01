@@ -1,15 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-
-# clone into /server/NekoNet-Server so the WORKDIR below exists
-RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /server/NekoNet-Server
-
+RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /home/mare/NekoNet-Server
 WORKDIR /home/mare/NekoNet-Server/NekoNetServer/NekoNetServer
 RUN dotnet publish -c Release -o /NekoNetServer NekoNetServer.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
 RUN adduser --disabled-password --group --no-create-home --quiet --system mare
-
-# copy the published output (folder name must match the -o above)
 COPY --from=build /NekoNetServer /opt/NekoNetServer
 RUN chown -R mare:mare /opt/NekoNetServer \
  && apt-get update && apt-get install -y curl \
@@ -18,4 +13,3 @@ RUN chown -R mare:mare /opt/NekoNetServer \
 USER mare:mare
 WORKDIR /opt/NekoNetServer
 CMD ["./NekoNetServer"]
-
