@@ -1,20 +1,23 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server /home/mare/NekoNet-Server
-WORKDIR /home/mare/NekoNet-Server
-
-# Debug: List what's actually in the directory structure
-RUN find . -name "*.csproj" -type f
-
-# Try to restore all projects first to resolve dependencies
-RUN dotnet restore NekoNetServer/NekoNetAuthService/NekoNetAuthService.csproj || true
-RUN dotnet restore NekoNetAPI/NekoNetAPI/NekoNet.API.csproj || true
-
-# Build the AuthService
-RUN dotnet publish NekoNetServer/NekoNetAuthService/NekoNetAuthService.csproj -c Release -o /NekoNetAuthService
+COPY NekoNetAPI /server/NekoNetAPI
+COPY NekoNetServer/NekoNetShared /server/NekoNetServer/NekoNetShared
+COPY NekoNetServer/NekoNetAuthService /server/NekoNetServer/NekoNetAuthService
+WORKDIR /server/NekoNetServer/NekoNetAuthService/
+RUN dotnet publish \
+        --configuration=Release \
+        --os=linux \
+        --output=/build \
+        NekoNetAuthService.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
-RUN adduser --disabled-password --group --no-create-home --quiet --system mare
-COPY --from=build /NekoNetAuthService /opt/NekoNetAuthService
+RUN adduser \
+        --disabled-password \
+        --group \
+        --no-create-home \
+        --quiet \
+        --system \
+        mare
+COPY --from=build /build /opt/NekoNetAuthService
 RUN chown -R mare:mare /opt/NekoNetAuthService && \
     apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 USER mare:mare
