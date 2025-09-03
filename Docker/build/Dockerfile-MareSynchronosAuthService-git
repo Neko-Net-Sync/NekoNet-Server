@@ -1,12 +1,10 @@
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-COPY NekoNetAPI /server/NekoNetAPI
-COPY NekoNetServer/NekoNetShared /server/NekoNetServer/NekoNetShared
-COPY NekoNetServer/NekoNetAuthService /server/NekoNetServer/NekoNetAuthService
-WORKDIR /server/NekoNetServer/NekoNetAuthService/
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS BUILD
+RUN git clone --recurse-submodules https://github.com/Neko-Net-Sync/NekoNet-Server
+WORKDIR /NekoNet-Server/NekoNetServer/NekoNetAuthService/
 RUN dotnet publish \
         --configuration=Release \
         --os=linux \
-        --output=/build \
+        --output=/NekoNetAuthService \
         NekoNetAuthService.csproj
 
 FROM mcr.microsoft.com/dotnet/aspnet:9.0
@@ -17,7 +15,7 @@ RUN adduser \
         --quiet \
         --system \
         mare
-COPY --from=build /build /opt/NekoNetAuthService
+COPY --from=BUILD /NekoNetAuthService /opt/NekoNetAuthService
 RUN chown -R mare:mare /opt/NekoNetAuthService && \
     apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 USER mare:mare
