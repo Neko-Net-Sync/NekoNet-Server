@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 as BUILD
 
-COPY MareAPI /server/MareAPI
-COPY MareSynchronosServer/MareSynchronosShared /server/MareSynchronosServer/MareSynchronosShared
-COPY MareSynchronosServer/MareSynchronosStaticFilesServer /server/MareSynchronosServer/MareSynchronosStaticFilesServer
+COPY NekoNetAPI /server/NekoNetAPI
+COPY NekoNetServer/NekoNetShared /server/NekoNetServer/NekoNetShared
+COPY NekoNetServer/NekoNetStaticFilesServer /server/NekoNetServer/NekoNetStaticFilesServer
 
-WORKDIR /server/MareSynchronosServer/MareSynchronosStaticFilesServer/
+WORKDIR /server/NekoNetServer/NekoNetStaticFilesServer/
 
 RUN dotnet publish \
         --configuration=Release \
@@ -22,11 +22,11 @@ RUN adduser \
         --system \
         mare
 
-COPY --from=BUILD /build /opt/MareSynchronosStaticFilesServer
-RUN chown -R mare:mare /opt/MareSynchronosStaticFilesServer
+COPY --from=BUILD /build /opt/NekoNetStaticFilesServer
+RUN chown -R mare:mare /opt/NekoNetStaticFilesServer
 RUN apt-get update; apt-get install curl -y
 
 USER mare:mare
-WORKDIR /opt/MareSynchronosStaticFilesServer
+WORKDIR /opt/NekoNetStaticFilesServer
 
-CMD ["./MareSynchronosStaticFilesServer"]
+CMD ["./NekoNetStaticFilesServer"]
