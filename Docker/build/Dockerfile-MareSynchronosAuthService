@@ -1,10 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:9.0 as BUILD
 
-COPY MareAPI /server/MareAPI
-COPY MareSynchronosServer/MareSynchronosShared /server/MareSynchronosServer/MareSynchronosShared
-COPY MareSynchronosServer/MareSynchronosAuthService /server/MareSynchronosServer/MareSynchronosAuthService
+COPY NekoNetAPI /server/NekoNetAPI
+COPY NekoNetServer/NekoNetShared /server/NekoNetServer/NekoNetShared
+COPY NekoNetServer/NekoNetAuthService /server/NekoNetServer/NekoNetAuthService
 
-WORKDIR /server/MareSynchronosServer/MareSynchronosAuthService/
+WORKDIR /server/NekoNetServer/NekoNetAuthService/
 
 RUN dotnet publish \
         --configuration=Debug \
@@ -22,11 +22,11 @@ RUN adduser \
         --system \
         mare
 
-COPY --from=BUILD /build /opt/MareSynchronosAuthService
-RUN chown -R mare:mare /opt/MareSynchronosAuthService
+COPY --from=BUILD /build /opt/NekoNetAuthService
+RUN chown -R mare:mare /opt/NekoNetAuthService
 RUN apt-get update; apt-get install curl -y
 
 USER mare:mare
-WORKDIR /opt/MareSynchronosAuthService
+WORKDIR /opt/NekoNetAuthService
 
-CMD ["./MareSynchronosAuthService"]
+CMD ["./NekoNetAuthService"]
